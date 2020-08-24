@@ -6,5 +6,8 @@ public class ForLessonTwo {
     public static void main(String[] args) {
 
 
+    }
+
+
 
 }
