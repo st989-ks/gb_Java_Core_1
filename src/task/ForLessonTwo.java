@@ -136,10 +136,9 @@ public class ForLessonTwo {
     /*Решение для задачи №7
      * */
     static void printOffset(int[] arr, int offset) {
+
         System.out.println(Arrays.toString(arr));
-        while (offset < 0 && (offset * -1) >= arr.length) {     //если модуль n-сдвига больше чем длина массива урезаем n
-            offset = offset + arr.length;
-        }
+        offset = offset % arr.length;
 
         if (offset < 0) {                                       // конвертируем n в обратную сторону
             offset = (arr.length + offset);
