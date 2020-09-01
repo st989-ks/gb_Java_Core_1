@@ -133,7 +133,8 @@ public class ForLessonFourth {
         }
         return true;
     }
-
+    /*Проверка с учетов смещения
+     * */
     public static boolean checkWin(char dot) {
 
         for (int column = 0; column < SIZE - DOT_TO_WIN + 1; column++) {
@@ -146,7 +147,8 @@ public class ForLessonFourth {
         return false;
 
     }
-
+    /*Проверка по диагоналям
+    * */
     public static boolean checkD(char dot, int c, int r) {
 
         boolean leftD = true;
@@ -159,7 +161,8 @@ public class ForLessonFourth {
 
         return leftD || rightD;
     }
-
+    /*Проверка по горизонтали и вертикали
+     * */
     public static boolean checkCR(char dot, int c, int r) {
 
         boolean column;
