@@ -63,5 +63,6 @@ public class Employee {
                 "Телефон -", telephone,
                 "Зарплата -", salary,
                 "Возраст -", age);
+
     }
 }

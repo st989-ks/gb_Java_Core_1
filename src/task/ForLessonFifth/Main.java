@@ -2,6 +2,7 @@ package task.ForLessonFifth;
 
 public class Main {
     public static void main(String[] args) {
+
         Employee[] employee = {new Employee("Водкин Петр Александрович", "Адвокат",
                 "vodka@ku.vru", "8(962)565-55-66", 50000, 35),
                 new Employee("Китоваленок Игорь Александрович", "Тракторист",
