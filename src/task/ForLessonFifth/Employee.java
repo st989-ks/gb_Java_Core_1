@@ -9,8 +9,8 @@ public class Employee {
     private int salary;
     private int age;
 
-    public Employee (String fullName, String position, String email,
-               String telephone,int salary,int age) {
+    public Employee(String fullName, String position, String email,
+                    String telephone, int salary, int age) {
         this.fullName = fullName;
         this.position = position;
         this.email = email;
@@ -20,10 +20,12 @@ public class Employee {
     }
 
     public int getAge() {
+
         return age;
     }
 
     public int getSalary() {
+
         return salary;
     }
 
@@ -32,21 +34,33 @@ public class Employee {
     }
 
     public String getFullName() {
+
         return fullName;
     }
 
     public String getPosition() {
+
         return position;
     }
 
     public String getTelephone() {
+
         return telephone;
     }
+
     public void info() {
 
-        System.out.printf("\nФИО - %-20s\nДолжность - %-20s" +
-                        "\nПочта - %-20s\nТелефон - %-20s\nЗарплата - %-20d\n" +
-                        "Возраст - %-20d\n",
-                fullName, position, email,telephone,salary,age);
+        System.out.printf("\n%-12s%s%n" +
+                        "%-12s%s%n" +
+                        "%-12s%s%n" +
+                        "%-12s%s%n" +
+                        "%-12s%d%n" +
+                        "%-12s%d%n",
+                "ФИО -", fullName,
+                "Должность -", position,
+                "Почта -", email,
+                "Телефон -", telephone,
+                "Зарплата -", salary,
+                "Возраст -", age);
     }
 }
