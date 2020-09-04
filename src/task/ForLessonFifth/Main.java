@@ -13,6 +13,7 @@ public class Main {
                 new Employee("Карманчик Федор Федорович", "Фрилансер",
                         "fric@ku.vru", "8(967)345-57-56", 551000, 150),
         };
+
         for (Employee x : employee) {
             if (x.getAge() > 40) {
                 x.info();
