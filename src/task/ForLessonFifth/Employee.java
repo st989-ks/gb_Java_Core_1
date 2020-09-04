@@ -66,6 +66,5 @@ public class Employee {
                 "Зарплата -", salary,
                 "Возраст -", age);
 
-        return telephone;
     }
 }
