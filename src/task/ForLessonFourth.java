@@ -4,14 +4,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ForLessonFourth {
-    static final int SIZE = 3;
-//    static final int DOT_TO_WIN = 3;
+    static final int SIZE = 5;
+    static final int DOT_TO_WIN = 4;
 
     static final char DOT_X = 'X';
     static final char DOT_O = 'O';
     static final char DOT_EMPTY = '.';
 
     static char[][] map;
+    static char[][] clone;
 
     static Scanner sc = new Scanner(System.in);
     static Random random = new Random();
@@ -23,7 +24,7 @@ public class ForLessonFourth {
         while (true) {
             humanTurn();
             printMap();
-            if(checkWin(DOT_X)){
+            if (checkWin(DOT_X)) {
                 System.out.println("Вы победили! Поздравляем!");
                 break;
             }
@@ -34,7 +35,7 @@ public class ForLessonFourth {
 
             aiTurn();
             printMap();
-            if(checkWin(DOT_O)){
+            if (checkWin(DOT_O)) {
                 System.out.println("Компьютер победил.");
                 break;
             }
@@ -88,21 +89,36 @@ public class ForLessonFourth {
             return false;
         }
         return map[y][x] == DOT_EMPTY;
-//        if (map[y][x] == DOT_EMPTY) {
-//            return true;
-//        } else {
-//            return false;
-//        }
     }
 
     public static void aiTurn() {
-        int x;
-        int y;
+        int x = -1;
+        int y = -1;
+        boolean win = false;
 
-        do {
-            x = random.nextInt(SIZE);
-            y = random.nextInt(SIZE);
-        } while (!isCellValid(y, x));
+        for (int i = 0; i < SIZE; i++) {
+
+            for (int j = 0; j < SIZE; j++) {
+
+                if (isCellValid(i, j)) {
+                    map[i][j] = DOT_X;
+                    if (checkWin(DOT_X)) {
+                        x = j;
+                        y = i;
+                        win = true;
+                    }
+                    map[i][j] = DOT_EMPTY;
+
+                }
+            }
+        }
+        if (!win) {
+
+            do {
+                x = random.nextInt(SIZE);
+                y = random.nextInt(SIZE);
+            } while (!isCellValid(y, x));
+        }
 
         map[y][x] = DOT_O;
     }
@@ -117,20 +133,56 @@ public class ForLessonFourth {
         }
         return true;
     }
+    /*Проверка с учетов смещения
+     * */
+    public static boolean checkWin(char dot) {
 
-    public static boolean checkWin(char c) {
-        if (map[0][0] == c && map[0][1] == c && map[0][2] == c) {return true; }
-        if (map[1][0] == c && map[1][1] == c && map[1][2] == c) {return true; }
-        if (map[2][0] == c && map[2][1] == c && map[2][2] == c) {return true; }
+        for (int column = 0; column < SIZE - DOT_TO_WIN + 1; column++) {
+            for (int row = 0; row < SIZE - DOT_TO_WIN + 1; row++) {
+                if (checkD(dot, column, row) || checkCR(dot, column, row)) {
+                    return true;
+                }
+            }
+        }
+        return false;
 
-        if (map[0][0] == c && map[1][0] == c && map[2][0] == c) {return true; }
-        if (map[0][1] == c && map[1][1] == c && map[2][1] == c) {return true; }
-        if (map[0][2] == c && map[1][2] == c && map[2][2] == c) {return true; }
+    }
+    /*Проверка по диагоналям
+    * */
+    public static boolean checkD(char dot, int c, int r) {
 
-        if (map[0][0] == c && map[1][1] == c && map[2][2] == c) {return true; }
-        if (map[0][2] == c && map[1][1] == c && map[2][0] == c) {return true; }
+        boolean leftD = true;
+        boolean rightD = true;
+        for (int i = 0; i < DOT_TO_WIN; i++) {
+
+            leftD &= (map[i + c][i + r] == dot);
+            rightD &= (map[DOT_TO_WIN - i - 1 + c][i + r] == dot);
+        }
+
+        return leftD || rightD;
+    }
+    /*Проверка по горизонтали и вертикали
+     * */
+    public static boolean checkCR(char dot, int c, int r) {
+
+        boolean column;
+        boolean row;
+        for (int i = c; i < DOT_TO_WIN + c; i++) {
+            column = true;
+            row = true;
+
+            for (int j = r; j < DOT_TO_WIN + r; j++) {
+
+                column &= (map[i][j] == dot);
+                row &= (map[j][i] == dot);
+            }
+
+            if (column || row) {
+
+                return true;
+            }
+        }
 
         return false;
     }
-
 }
