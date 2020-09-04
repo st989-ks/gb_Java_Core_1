@@ -19,8 +19,6 @@ public class Main {
                 x.info();
             }
         }
-
-
     }
 
 }
