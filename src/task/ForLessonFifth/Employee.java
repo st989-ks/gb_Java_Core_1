@@ -9,8 +9,9 @@ public class Employee {
     private int salary;
     private int age;
 
-    public Employee(String fullName, String position, String email,
-                    String telephone, int salary, int age) {
+    public Employee (String fullName, String position, String email,
+               String telephone,int salary,int age) {
+
         this.fullName = fullName;
         this.position = position;
         this.email = email;
@@ -30,6 +31,7 @@ public class Employee {
     }
 
     public String getEmail() {
+
         return email;
     }
 
