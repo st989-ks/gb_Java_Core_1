@@ -4,23 +4,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ForLessonFourth {
-<<<<<<< HEAD
     static final int SIZE = 5;
     static final int DOT_TO_WIN = 4;
-=======
-    static final int SIZE = 3;
-//    static final int DOT_TO_WIN = 3;
->>>>>>> 790b2d5... HWLesson4
 
     static final char DOT_X = 'X';
     static final char DOT_O = 'O';
     static final char DOT_EMPTY = '.';
 
     static char[][] map;
-<<<<<<< HEAD
     static char[][] clone;
-=======
->>>>>>> 790b2d5... HWLesson4
 
     static Scanner sc = new Scanner(System.in);
     static Random random = new Random();
@@ -32,11 +24,7 @@ public class ForLessonFourth {
         while (true) {
             humanTurn();
             printMap();
-<<<<<<< HEAD
             if (checkWin(DOT_X)) {
-=======
-            if(checkWin(DOT_X)){
->>>>>>> 790b2d5... HWLesson4
                 System.out.println("Вы победили! Поздравляем!");
                 break;
             }
@@ -47,11 +35,7 @@ public class ForLessonFourth {
 
             aiTurn();
             printMap();
-<<<<<<< HEAD
             if (checkWin(DOT_O)) {
-=======
-            if(checkWin(DOT_O)){
->>>>>>> 790b2d5... HWLesson4
                 System.out.println("Компьютер победил.");
                 break;
             }
@@ -105,7 +89,6 @@ public class ForLessonFourth {
             return false;
         }
         return map[y][x] == DOT_EMPTY;
-<<<<<<< HEAD
     }
 
     public static void aiTurn() {
@@ -136,23 +119,6 @@ public class ForLessonFourth {
                 y = random.nextInt(SIZE);
             } while (!isCellValid(y, x));
         }
-=======
-//        if (map[y][x] == DOT_EMPTY) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-    }
-
-    public static void aiTurn() {
-        int x;
-        int y;
-
-        do {
-            x = random.nextInt(SIZE);
-            y = random.nextInt(SIZE);
-        } while (!isCellValid(y, x));
->>>>>>> 790b2d5... HWLesson4
 
         map[y][x] = DOT_O;
     }
@@ -167,7 +133,6 @@ public class ForLessonFourth {
         }
         return true;
     }
-<<<<<<< HEAD
     /*Проверка с учетов смещения
      * */
     public static boolean checkWin(char dot) {
@@ -183,7 +148,7 @@ public class ForLessonFourth {
 
     }
     /*Проверка по диагоналям
-    * */
+     * */
     public static boolean checkD(char dot, int c, int r) {
 
         boolean leftD = true;
@@ -220,22 +185,4 @@ public class ForLessonFourth {
 
         return false;
     }
-=======
-
-    public static boolean checkWin(char c) {
-        if (map[0][0] == c && map[0][1] == c && map[0][2] == c) {return true; }
-        if (map[1][0] == c && map[1][1] == c && map[1][2] == c) {return true; }
-        if (map[2][0] == c && map[2][1] == c && map[2][2] == c) {return true; }
-
-        if (map[0][0] == c && map[1][0] == c && map[2][0] == c) {return true; }
-        if (map[0][1] == c && map[1][1] == c && map[2][1] == c) {return true; }
-        if (map[0][2] == c && map[1][2] == c && map[2][2] == c) {return true; }
-
-        if (map[0][0] == c && map[1][1] == c && map[2][2] == c) {return true; }
-        if (map[0][2] == c && map[1][1] == c && map[2][0] == c) {return true; }
-
-        return false;
-    }
-
->>>>>>> 790b2d5... HWLesson4
 }
