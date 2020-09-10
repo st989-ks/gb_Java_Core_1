@@ -10,9 +10,15 @@ public class Plate {
     public int getFood() {
         return food;
     }
+    public void infoFood(){
+        System.out.println(getFood()+" more food left!");
+    }
 
     public void decreaseFood(int amount) {
-        this.food -= amount;
+        boolean a = (this.food - amount) < 0;
+        if (!a){
+            this.food -= amount;
+        }
     }
 
     @Override
