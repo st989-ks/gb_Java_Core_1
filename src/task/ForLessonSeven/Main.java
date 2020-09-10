@@ -9,6 +9,9 @@ public class Main {
         Plate plate = new Plate(100);
 
         cat[0].eat(plate);
+        cat[1].eat(plate);
+
+        System.out.println(plate.getFood());
 
 
     }

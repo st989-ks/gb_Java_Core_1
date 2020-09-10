@@ -11,7 +11,7 @@ public class Cat {
 
     public void eat(Plate plate) {
         System.out.println("Cat " + name + " eat...");
-        plate.decreaseFood(10);
+        plate.decreaseFood(this.hunger);
     }
 
 
